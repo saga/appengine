@@ -21,7 +21,7 @@
     "node-mailjet": "^3.3.1",
     "rss-parser": "3.7.5",
     "socket.io": "^2.2.0",
-    "typescript": "^3.8.0",
+    "typescript": "^3.8.0"
   },
   "devDependencies": {
     "@google-cloud/nodejs-repo-tools": "^3.3.0",

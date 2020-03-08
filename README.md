@@ -1,3 +1,10 @@
+
+Logging service:
+
+    https://console.cloud.google.com/logs/query?folder=true&organizationId=true&project=node998877&query=%0A
+    
+
+
 # App Engine TypeScript sample
 
 This sample provides an example of how to compile TypeScript files while
