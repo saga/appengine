@@ -40,6 +40,4 @@ By default, this application deploys to [App Engine Standard][appengine]. _(Reco
 Deploy to App Engine Flexible by [modifying `app.yaml`][app_yaml].
 
 [appengine]: https://cloud.google.com/appengine/docs/standard/nodejs
-[app_yaml]: https://cloud.google.com/appengine/docs/flexible/nodejs/configuring-your-app-with-app-yaml
 [tutorial]: https://cloud.google.com/appengine/docs/standard/nodejs/quickstart
-[contributing]: https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/master/CONTRIBUTING.md

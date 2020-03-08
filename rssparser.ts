@@ -3,9 +3,11 @@ let parser = new Parser();
  
 export async function readFeed(req, res, next, url = "https://www.reddit.com/.rss") {
     let feed = await parser.parseURL(url);
-    console.log(feed.title);
+    let ret = feed.title;
    
     feed.items.forEach(item => {
-      console.log(item.title + ':' + item.link)
+      ret += "<br/>" + (item.title + ': ' + item.link);
     });
+
+    res.send(ret);
 }
