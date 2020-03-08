@@ -17,6 +17,18 @@ const getVisits = () => {
   return datastore.runQuery(query);
 };
 
+export async function saveStore(key, data) {
+  return await datastore.save({
+    key: datastore.key(key),
+    data: JSON.stringify(data)
+  })
+}
+
+export async function loadStore(key) {
+  const ret = await datastore.get(datastore.key(key));
+  console.log(ret);
+}
+
 export async function handleDataStore(req, res, next): Promise<void> {
     // Create a visit record to be stored in the database
   const visit = {

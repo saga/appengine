@@ -1,13 +1,22 @@
 import * as Parser from 'rss-parser';
 import { RssFeed, RssFeedItem } from './rssfeed';
+import { saveStore, loadStore } from './datastore';
 let parser = new Parser();
- 
-export async function readFeed(req, res, next, url = "https://www.reddit.com/.rss") {
-    let feed = await parser.parseURL(url);
+const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
+
+//https://chinadigitaltimes.net/chinese/feed/
+//https://www.reddit.com/.rss
+export async function readFeed(req, res, next, useProxy=true, url = "https://chinadigitaltimes.net/chinese/feed/") {
+    let feedSourceUrl = url;
+    if (useProxy){
+      feedSourceUrl = CORS_PROXY + url;
+    }
+    let feed = await parser.parseURL(feedSourceUrl);
     const ret = new RssFeed();
     ret.title = feed.title;
     ret.link = feed.link;
     ret.link = feed.feedUrl;
+    ret.items = [];
 
     feed.items.forEach(f => {
       const item = new RssFeedItem();
@@ -22,5 +31,7 @@ export async function readFeed(req, res, next, url = "https://www.reddit.com/.rs
       ret.items.push(item);
     });
 
+    await saveStore("aaaa", ret);
+    await loadStore("aaaa");
     res.json(ret);
 }
