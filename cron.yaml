@@ -1,0 +1,4 @@
+cron:
+- description: "daily summary job"
+  url: /job
+  schedule: every 5 mins

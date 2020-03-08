@@ -1,0 +1,6 @@
+# [START appengine_websockets_yaml]
+runtime: nodejs12
+
+network:
+  session_affinity: true
+# [END appengine_websockets_yaml]
